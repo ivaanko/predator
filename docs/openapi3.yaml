@@ -1477,6 +1477,11 @@ components:
           type: string
           description: set to * in order to print all requests and responeses of the runner
           example: test
+        enabled:
+          type: boolean
+          description: Ability to enable/disable scheduled jobs.
+          example: true
+          default: true
     job_response:
       allOf:
         - $ref: '#/components/schemas/job'
@@ -1635,9 +1640,9 @@ components:
         runner_memory:
           type: number
           minimum: 128
-        allow_unsecure_ssl:
+        allow_insecure_tls:
           type: boolean
-          description: Whether to allow unsecure ssl or not.
+          description: If true, don't fail requests on unverified server certificate errors.
         metrics_plugin_name:
           type: string
           enum:
